@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تست انیمیشن مرورگر شما</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        /* استایل برای دستگاه‌های مدرن */
+        .animation-area {
+            position: relative;
+            height: 300px;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        
+        /* انیمیشن‌های CSS */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .animated-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            top: 50px;
+            left: 20%;
+        }
+      a  {
+        color:#764698;
+        text-align-last: left;
+        text-wrap: 64px;
+        text-align: right;
+      }
+     ani@m
+        .animated-square {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4834d4, #686de0);
+            position: absolute;
+            animation: slide 2s ease-out infinite alternate;
+            top: 150px;
+            right: 20%;
+        }
+        
+        .animated-triangle {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 70px solid #10ac84;
+            position: absolute;
+            animation: pulse 1.5s ease-in-out infinite;
+            bottom: 50px;
+            left: 45%;
+        }
+        
+        /* استایل fallback برای دستگاه‌های قدیمی */
+        .static-image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        
+        .result {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-right: 5px solid;
+        }
+        
+        .modern {
+            border-color: #00b894;
+            color: #00b894;
+        }
+        
+        .old {
+            border-color: #e17055;
+            color: #e17055;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .feature {
+            background: skyblue;
+            padding: 15px;
+            border-radius: 10px;
+            border-right: 3px solid blue;
+          text-align: left;
+          border-left: 3px solid blue;
+          border-bottom: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>🎬 تست قابلیت‌های انیمیشن مرورگر</h4>
+        
+        <div class="animation-area" id="animationContainer">
+            <!-- انیمیشن‌های مدرن -->
+            <div class="animated-circle"></div>
+            <div class="animated-square"></div>
+            <div class="animated-triangle"></div>
+            
+            <!-- تصویر جایگزین برای دستگاه‌های قدیمی -->
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ3aGl0ZSIvPgo8Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MCIgcj0iNDAiIGZpbGw9IiNGRjZCNkIiLz4KPHJlY3QgeD0iMjgwIiB5PSIxMjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzQ4MzRENCIvPgo8cGF0aCBkPSJNMjAwIDI0MEwxNjAgMTcwTDI0MCAxNzBMMjAwIDI0MFoiIGZpbGw9IiMxMEFDODQiLz4KPHRleHQgeD0iMjAwIiB5PSIyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyI+ﺺﻮﺻ ﺮﯿﺛﺄﺗ ﺮﯿﻏ ﺎﻤﻧ ﺪﻧﺍﺩ ﻥﺎﺸﻧ ﺍﺭ ﺩﻮﺧ ﻦﯿﯾﺍﺭﺍ</dGV4dD4KPC9zdmc+" 
+                 alt="تصویر استاتیک" class="static-image" id="staticImage">
+        </div>
+
+        <div class="result" id="result">
+            <!-- نتیجه به صورت داینامیک نمایش داده می‌شود -->
+        </div>
+        
+        <div class="features-list">
+            <div class="feature">🎯 CSS Animations</div>
+            <div class="feature">🚀 JavaScript RAF</div>
+            <div class="feature">🌈 CSS Transforms</div>
+            <div class="feature">⚡ Performance</div>
+        </div>
+      <a href="../index.html">بازگشت به صفحه اصلی</a>
+    </div>
+
+    <script>
+        // تست قابلیت‌های انیمیشن
+        function testAnimations() {
+            const tests = {
+                cssAnimations: 'animation' in document.documentElement.style,
+                cssTransforms: 'transform' in document.documentElement.style,
+                requestAnimationFrame: 'requestAnimationFrame' in window,
+                webAnimationsAPI: 'animate' in document.documentElement,
+                cssTransitions: 'transition' in document.documentElement.style
+            };
+            
+            // شمارش تست‌های پاس شده
+            const passedTests = Object.values(tests).filter(Boolean).length;
+            const totalTests = Object.keys(tests).length;
+            const isModern = passedTests >= totalTests * 0.8; // 80% تست‌ها پاس شوند
+            
+            return { isModern, passedTests, totalTests, tests };
+        }
+        
+        // اعمال نتیجه تست
+        function applyTestResult() {
+            const { isModern, passedTests, totalTests, tests } = testAnimations();
+            const animationContainer = document.getElementById('animationContainer');
+            const staticImage = document.getElementById('staticImage');
+            const resultDiv = document.getElementById('result');
+            
+            if (isModern) {
+                // دستگاه مدرن - انیمیشن‌ها نمایش داده می‌شوند
+                staticImage.style.display = 'none';
+                resultDiv.className = 'result modern';
+                resultDiv.innerHTML = `
+                    <h3>✅ مرورگر شما مدرن است!</h3>
+                    <p>${passedTests} از ${totalTests} تست انیمیشن با موفقیت پاس شد</p>
+                    <p>انیمیشن‌های بالا به صورت روان در حال اجرا هستند</p>
+                `;
+                
+                // اضافه کردن انیمیشن‌های جاوااسکریپتی
+                addJavaScriptAnimations();
+            } else {
+                // دستگاه قدیمی - نمایش تصویر استاتیک
+                animationContainer.style.display = 'none';
+                staticImage.style.display = 'block';
+                resultDiv.className = 'result old';
+                resultDiv.innerHTML = `
+                    <h3>⚠️ مرورگر شما قدیمی است</h3>
+                    <p>فقط ${passedTests} از ${totalTests} تست انیمیشن پاس شد</p>
+                    <p>به جای انیمیشن، تصویر استاتیک نمایش داده می‌شود</p>
+                `;
+            }
+        }
+        
+        // اضافه کردن انیمیشن‌های جاوااسکریپتی برای دستگاه‌های مدرن
+        function addJavaScriptAnimations() {
+            const container = document.getElementById('animationContainer');
+            
+            // ایجاد المان جدید با انیمیشن RAF
+            const jsAnimatedElement = document.createElement('div');
+            jsAnimatedElement.style.cssText = `
+                width: 40px; height: 40px; background: #fdcb6e; 
+                border-radius: 50%; position: absolute; bottom: 100px; right: 50px;
+            `;
+            container.appendChild(jsAnimatedElement);
+            
+            // انیمیشن با requestAnimationFrame
+            let startTime = null;
+            function animateJS(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                
+                const x = Math.sin(progress * 0.01) * 50;
+                const y = Math.cos(progress * 0.01) * 30;
+                const scale = 1 + Math.sin(progress * 0.005) * 0.3;
+                
+                jsAnimatedElement.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+                
+                requestAnimationFrame(animateJS);
+            }
+            
+            requestAnimationFrame(animateJS);
+        }
+        
+        // اجرای تست هنگام بارگذاری صفحه
+        window.addEventListener('load', applyTestResult);
+    </script>
+</body>
+</html>

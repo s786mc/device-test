@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root { --test-color: #4CAF50; }
+        .test-item { margin: 10px 0; padding: 10px; border-right: 4px solid; }
+        .supported { border-color: var(--test-color, green); background: #f0f9f0; }
+        .unsupported { border-color: #f44336; background: #fdeaea; }
+        
+        /* تست CSS Grid */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px; 
+        }
+        
+        /* تست Flexbox Gap */
+        .flex-gap-test { 
+            display: flex; 
+            gap: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 آزمایشگاه تست مرورگر</h1>
+    
+    <div class="test-item supported" id="css-grid-test">
+        <strong>CSS Grid:</strong> اگر این متن در دو ستون دیده می‌شود → پشتیبانی می‌شود
+        <div class="grid-container">
+            <div>ستون 1</div>
+            <div>ستون 2</div>
+        </div>
+    </div>
+    
+    <div class="test-item" id="css-vars-test">
+        <strong>CSS Variables:</strong> 
+        <span style="color: var(--test-color, black);">
+            اگر این متن سبز است → پشتیبانی می‌شود
+        </span>
+    </div>
+    
+    <div class="test-item flex-gap-test" id="flex-gap-test">
+        <strong>Flexbox Gap:</strong> 
+        <div>آیتم 1</div>
+        <div>آیتم 2</div>
+        <span>اگر فاصله بین آیتم‌ها وجود دارد → پشتیبانی می‌شود</span>
+    </div>
+
+    <script>
+        // تست‌های جاوااسکریپتی
+        const tests = [
+            {
+                name: 'Local Storage',
+                test: () => { try { localStorage.setItem('test', '1'); return true; } catch { return false; } }
+            },
+            {
+                name: 'Session Storage', 
+                test: () => { try { sessionStorage.setItem('test', '1'); return true; } catch { return false; } }
+            },
+            {
+                name: 'Service Worker',
+                test: () => 'serviceWorker' in navigator
+            },
+            {
+                name: 'Geolocation',
+                test: () => 'geolocation' in navigator
+            }
+        ];
+
+        tests.forEach(({name, test}) => {
+            const result = test();
+            document.write(`
+                <div class="test-item ${result ? 'supported' : 'unsupported'}">
+                    <strong>${name}:</strong> ${result ? '✅ پشتیبانی می‌شود' : '❌ پشتیبانی نمی‌شود'}
+                </div>
+            `);
+        });
+    </script>
+</body>
+</html>

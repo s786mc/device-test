@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        wart {
+            display: inline-block;
+            color: green;
+            font-weight: bold;
+            background: #e8f5e8;
+            padding: 4px 8px;
+            border: 2px solid green;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        
+        .test-box {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+/* 📱 موبایل - پرتره (عمودی) */
+@media (max-width: 480px) {
+    .test-box {
+        padding: 15px;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+/* 📱 موبایل - لنداسکیپ (افقی) */
+@media (max-width: 767px) {
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+    .animation-area {
+        height: 200px;
+    }
+}
+
+/* 📱 تبلت - پرتره */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+}
+    </style>
+</head>
+<body> 
+    <div class="test-box">
+        <h2>🧪 تست قابلیت‌های مرورگر شما</h2>
+        <p>متن زیر را نگاه کنید:</p>
+        
+        <div style="font-size: 18px; margin: 20px 0;">
+            "hello <wart>این متن باید سبز و داخل کادر باشد</wart> !"
+        </div>
+        
+        <div style="background: white; padding: 15px; border-radius: 8px;">
+            <h3>🔍 نتیجه تست:</h3>
+            <p>اگر متن <strong style="color: green;">"این متن باید سبز و داخل کادر باشد"</strong> را به صورت:</p>
+            <ul style="text-align: right; direction: rtl;">
+                <li>✅ <strong>سبز رنگ</strong> می‌بینید → مرورگر شما از المنت‌های سفارشی پشتیبانی می‌کند</li>
+                <li>❌ <strong>مشکی معمولی</strong> می‌بینید → مرورگر شما قدیمی است</li>
+            </ul>
+<h3>  if you look and watch green , Your Device support Custom Elements </h3>
+        </div>
+    </div>
+</body>
+</html>

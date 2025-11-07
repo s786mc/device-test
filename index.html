@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمایشگاه تست مرورگر</title>
+    <style>
+        /* استایل‌های کلی */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* هدر */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* منو */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-image {
+            width: 100%;
+            height: 200px;
+            background: #ff7e5f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .menu-content {
+            padding: 25px;
+        }
+        
+        .menu-content h2 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .menu-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* فوتر */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* رسپانسیو */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .menu {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-image {
+                height: 180px;
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .menu-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="menu-image">
+    <img src="./igxguovpigyofyofyoufuofyoucipuocyocoycoycouguogou/ofyicgoguogougipvougougogouf.png" alt="تست‌های جامع" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+            <p>بررسی قابلیت‌ها و عملکرد مرورگر شما با مجموعه تست‌های پیشرفته</p>
+        </header>
+        
+        <div class="menu">
+            <div class="menu-item" onclick="tests.html">
+                <div class="menu-image">
+                    <span>🧪</span>
+                </div>
+                <div class="menu-content">
+                    <h2>تست‌های جامع مرورگر</h2>
+                    <p>مجموعه کامل تست‌های مختلف برای بررسی تمام قابلیت‌های مرورگر شما از جمله CSS، JavaScript، Web APIs و موارد دیگر</p>
+                    <button class="btn">مشاهده تست‌ها</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="location.href='./CustomElement-TEST.htm'">
+                <div class="menu-image">
+                    <span>🔧</span>
+                </div>
+                <div class="menu-content">
+                    <h2>تست المنت‌های سفارشی</h2>
+                    <p>بررسی پشتیبانی مرورگر از المنت‌های HTML سفارشی و قابلیت‌های پیشرفته CSS</p>
+                    <button class="btn">اجرای تست</button>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="location.href='./TestAnimations.html">
+                <div class="menu-image">
+                    <span>🎬</span>
+                </div>
+                <div class="menu-content">
+                    <h2>تست انیمیشن‌ها</h2>
+                    <p>ارزیابی عملکرد انیمیشن‌های CSS و JavaScript در مرورگر شما</p>
+                    <button class="btn">اجرای تست</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 آزمایشگاه تست مرورگر - تمامی حقوق محفوظ است</p>
+        </footer>
+    </div>
+
+    <script>
+        // اضافه کردن انیمیشن‌های جزئی برای بهبود تجربه کاربری
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
